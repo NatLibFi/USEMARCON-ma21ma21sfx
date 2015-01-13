@@ -1,0 +1,49 @@
+MARC21-Fin FORMAT CHECKING FILE
+
+//Record Control Number
+001?| I1= | I2= |
+
+//Date and Time of the Latest Transaction
+005?| I1 = | I2= |
+
+//Fixed Length Data Elements
+008?| I1= | I2= |
+
+//International Standard Serial Number
+022*| I1=_01 | I2=_ | $a* | $y* | $z* | 
+
+//Publisher Number for Music
+028*| I1=012 | I2=_4 | $a* | 
+
+//Number 
+035*| I1=_ | I2=_ | $9* | 
+
+//Abbreviated Key Title
+210?| I1=1 | I2=_ | $a_ | 
+
+//Title Statement
+245_| I1=_012 | I2=_0123456789 | $a+ | $b* |
+
+//Electronic Resource Characteristics
+256?| I1=_ | I2=_1 | $a? | 
+
+//Publication, Distribution etc (Imprint)
+260*| I1=_ | I2=_1 | $a* | $b* | $c* | 
+
+//General Note
+500*| I1=_ | I2=_1 | $a_ | 
+
+//Restriction to Access Note
+506*| I1=_ | I2=_1 | $a_ | 
+
+//Additional Physical Form Available Note
+530*| I1=_ | I2=_1 | $a_ | 
+
+//Base of Description 
+531*| I1=_ | I2=_1 | $a_ |
+
+//Additional Physical Form Entry
+776*| I1=_ | I2=01234567 | $t? | $c? | $x? | 
+
+//URI
+856*| I1=4 | I2=_ | $u? | 

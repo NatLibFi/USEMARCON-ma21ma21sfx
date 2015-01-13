@@ -1,0 +1,70 @@
+SFX-aineiston konversio MARC 21 -> MARC 21, 3.12.2009 KK/AH
+
+000/1-5/   | 000/1-5/     | S
+000/6/     | 000/6/       | S
+000/7/     | 000/7/       | 'a'
+000/8/     | 000/8/       | 's'
+000/9/     | 000/9/       | '  '
+000/10/    | 000/10/      | 'a'
+000/11-17/ | 000/11-17/   | S
+000/18/    | 000/18/      | 'z'
+000/19/    | 000/19/      | ' '
+000/21-24/ | 000/21-24/   | S
+
+000/1-5/   | 008/1-6/     | '091209'
+000/1-5/   | 008/7/       | 'c'
+000/1-4/   | 008/12-15/   | '9999'
+
+
+
+
+866I1 | <A87I1   | ' '
+866I2 | <A87I2   | ' '
+866$a | <A87(1)$a    | If ((To(1) = 'A') And ((D='') Or (D > Between(16, 19)))) Then Between(16, 19)
+A87$a | 008(1)/8-11/ | S
+
+008/36-38/ | 008/36-38/        | S
+
+022I1 | 022(nto)I1   | ' '
+022I2 | 022(nto)I2   | ' '
+022$a | 022$y        | S
+
+090I1 | 028I1        | '0'
+090I2 | 028I2        | ' '
+090$a | 028$a        | S
+
+210I1 | 210I1        | If (n=1) Then '1'
+210I2 | 210I2        | If (n=1) Then ' '
+210$a | 210$a        | If (n=1) Then S
+
+245I1 | 245I1        | '2' 
+245I2 | 245I2        | If (I2=' ') Then '0' Else S 
+245$a | 245$a        | S+'.'; Table ('merkkikonv.tbl'); Replace ('&amp;' By '&')
+
+260I1 | 260I1        | S
+260I2 | 260I2        | S
+260$a | 260$a        | If (Exists ($a)) Then (S+' : ') Else S ; Table ('merkkikonv.tbl'); Delete (',' ,At Ending)
+260$b | 260$b        | Table ('merkkikonv.tbl'); Replace ('&amp;' By '&')
+
+866$a | 530(1)$a     | If (n=1) Then 'HUOM! Saatavana verkkojulkaisuna '
+866$a | 530(1)$a     | + If (n>1) Then ' tai '
+866$a | 530(1)$a     | + If ((RegFind('^Available from (.*)') >= 0)) Then 'vuodesta ' + RegMatch(1) + ' '; RegReplace(' until ', ' vuoteen '); RegReplace('Most recent (.*) not available', '(Most recent \\1 not available)'); Replace('Most recent' by 'uusimmat', Strict); Replace('year(s)' by 'vuoden ajalta', Strict); Replace('month(s)' by 'kk', Strict); Replace('not available' by 'ei saatavilla', Strict); Delete('.', Strict); Replace('  ' by ' ', Strict);
+866$a | 530(1)$a     | + If ((RegFind('^Most recent ([0-9]*)') >= 0)) Then 'viimeiset ' + RegMatch(1) + ' vuotta '
+866$x | 530(1)$a     | + If ((RegFind('(.*):') >= 0)) Then RegMatch(1) + ' -palvelusta'; Replace('&amp;' By '&', Strict)
+866I1 | 530(1)I1     | ' '
+866I2 | 530(1)I2     | ' '
+
+245I1 | 500I1        | ' '
+245I2 | 500I2        | ' '
+245I2 | 500$a        | 'Nimeke SFX-palvelusta.'
+
+710I1 | 260I1        | ' '
+710I2 | 260I2        | ' '
+710$a | 260$b        | S
+
+245I1 | 776I1        | ' '
+245I2 | 776I2        | If (I2=' ') Then '0' Else S 
+245$a | 776$t        | Table ('merkkikonv.tbl'); Replace ('&amp;' By '&')
+245$a | 776$c        | 'Online'
+776$x | 776$x        | S
+

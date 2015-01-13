@@ -1,0 +1,34 @@
+INPUT FORMAT CHECKING FILE
+
+//Record Control Number
+001*| I1= | I2= |
+
+//Fixed Length Data Elements
+008*| I1= | I2= |
+
+//International Standard Serial Number
+022*| I1=_01 | I2=_ | $a_ | $y* | $z* | 
+
+035?| I1=_ | I2=_ | $9? |
+
+//Local call number
+090?| I1=_0 | I2=_ | $a? | 
+
+//Abbreviated Key Title
+210*| I1=_ | I2=_ | $a_ | 
+
+//Title Statement
+245_| I1=_01 | I2=_0123456789 | $a_ | $b? | $c? | 
+
+//Publication Statement
+260?| I1=_ | I2=_ | $a? | $b? | 
+
+//Added Entry - Corporate Name
+710*| I1=_ | I2=_ | $a_ | 
+
+//Additional Physical Form Entry
+776*| I1=_ | I2=_ | $a? | $b? | $c? | $x? | 
+
+//Holdings
+866*| I1=_ | I2=_ | $a? | $b? | $s? | $t? | $z? | $x? | 
+
